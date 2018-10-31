@@ -24,6 +24,8 @@ private slots:
 
     void on_number_door_valueChanged(int arg1);
 
+    void on_new_circuit_accepted();
+
 private:
     Ui::new_circuit *ui;
 };

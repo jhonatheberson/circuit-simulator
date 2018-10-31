@@ -30,14 +30,16 @@ SOURCES += \
     new_circuit.cpp \
     modify_door.cpp \
     modify_exit.cpp \
-    bool3S.cpp
+    bool3S.cpp \
+    circuito.cpp
 
 HEADERS += \
         circuitos.h \
     new_circuit.h \
     modify_door.h \
     modify_exit.h \
-    bool3S.h
+    bool3S.h \
+    circuito.h
 
 FORMS += \
         circuitos.ui \

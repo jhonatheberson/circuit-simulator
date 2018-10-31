@@ -6,6 +6,7 @@
 #include <modify_exit.h>
 #include <modify_door.h>
 #include <new_circuit.h>
+#include <QLabel>
 
 namespace Ui {
 class Circuitos;
@@ -30,12 +31,19 @@ private slots:
 
     void on_actionGerar_tabela_triggered();
 
+    void on_Table_circuit_cellDoubleClicked(int row, int column);
+
+    void on_Table_exit_cellDoubleClicked(int row, int column);
+
 private:
     Ui::Circuitos *ui;
-    //Circuito cir;
+    Circuito cir;
     new_circuit new_cir;
     modify_door door;
     modify_exit exit;
+    QLabel NumIn;
+    QLabel NumCun;
+
 
 };
 

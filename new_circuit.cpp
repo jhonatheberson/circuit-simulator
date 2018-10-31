@@ -32,3 +32,9 @@ void new_circuit::on_number_door_valueChanged(int arg1)
 {
 
 }
+
+
+void new_circuit::on_new_circuit_accepted()
+{
+
+}

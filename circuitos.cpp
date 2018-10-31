@@ -2,11 +2,17 @@
 #include "ui_circuitos.h"
 #include "QLabel"
 #include "circuito.h"
+#include <QFile>
+#include <QTextStream>
+#include<QFileDialog>
+#include <QMessageBox>
+
+
 
 Circuitos::Circuitos(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Circuitos),
-    //cir(),
+    cir(),
     new_cir(), door(), exit()
 
 {
@@ -16,14 +22,15 @@ Circuitos::Circuitos(QWidget *parent) :
     QLabel *exit;
     ui->setupUi(this);
 
-    ui->Table_circuit->setRowCount(6);
-    ui->Table_circuit->setColumnCount(6);
+    ui->Table_circuit->setRowCount(0);
+    ui->Table_circuit->setColumnCount(0);
     ui->Table_circuit->QTableWidget::setEnabled(false);
     ui->Table_circuit->setSelectionMode(QAbstractItemView::NoSelection);
     ui->Table_circuit->setTabKeyNavigation(false);
     ui->Table_circuit->setEnabled(true);
+    ui->Table_circuit->setHorizontalHeaderLabels(QStringList() <<"TIPO" << "Nº \n ENTR" << "ENTR \n 1" << "ENTR \n 2" << "ENTR \n 3" << "ENTR \n 4");
 
-    /*
+  /*
     ui->Table_truth->setRowCount(5);
     ui->Table_truth->setColumnCount(5);
     ui->Table_truth->QTableWidget::setEnabled(false);
@@ -35,13 +42,17 @@ Circuitos::Circuitos(QWidget *parent) :
 
     */
 
-    ui->Table_exit->setRowCount(3);
-    ui->Table_exit->setColumnCount(1);
+    ui->Table_exit->setRowCount(0);
+    ui->Table_exit->setColumnCount(0);
     ui->Table_exit->QTableWidget::setEnabled(false);
     ui->Table_exit->setSelectionMode(QAbstractItemView::NoSelection);
     ui->Table_exit->setTabKeyNavigation(false);
     ui->Table_exit->setEnabled(true);
+    ui->Table_exit->setHorizontalHeaderLabels(QStringList() <<"ORG \n SAÍDA");
 
+
+
+/*
 
     for(unsigned j=0; j<7; j++)
     {
@@ -79,8 +90,9 @@ Circuitos::Circuitos(QWidget *parent) :
                             }
 
         ui->Table_circuit->setCellWidget(0,j,circuit);
-    }
 
+    }
+*/
     /*for(unsigned j=0; j<4; j++)
     {
         truth = new QLabel;
@@ -103,6 +115,7 @@ Circuitos::Circuitos(QWidget *parent) :
 
     */
 
+
         exit = new QLabel;
         exit->setAlignment(Qt::AlignCenter);
         exit->setGeometry(0,0,10,10);
@@ -123,6 +136,30 @@ void Circuitos::on_actionNovo_triggered()
 {
     new_cir.show();
 }
+/*
+
+void Circuitos::imprimirEntrada(int i,int j, int valor)
+{
+    for(int i=0; i<9; i++) for(int j=0; j<9; j++)
+    {
+        QLabel *prov = (QLabel*)(ui->Table_truth->cellWidget(i,j));
+        if(valor ==0) prov->setText("");
+        else prov->setNum(valor);
+    }
+}
+
+void Circuitos::imprimirSaidas()
+{
+
+    for(int i=0; i<9; i++) for(int j=0; j<9; j++)
+    {
+        QLabel *prov = (QLabel*)(ui->tabela_inicial->cellWidget(i,j));
+        if(valor ==0) prov->setText("");
+        else prov->setNum(valor);
+    }
+
+}
+*/
 
 void Circuitos::on_actionLer_triggered()
 {
@@ -133,7 +170,8 @@ void Circuitos::on_actionLer_triggered()
 
 void Circuitos::on_actionSalvar_triggered()
 {
-/*    QString fileName = QFileDialog::getSaveFileName(this,"Save File", QString(), tr("Text Files (*.txt);;C++ Files (*.cpp *.h)"));
+
+    QString fileName = QFileDialog::getSaveFileName(this,"Save File", QString(), tr("Text Files (*.txt);;C++ Files (*.cpp *.h)"));
       if (!fileName.isEmpty())
       {
         QFile file(fileName);
@@ -143,23 +181,33 @@ void Circuitos::on_actionSalvar_triggered()
         }
         else
         {
-          QTextStream stream(&file);
-          stream << ui->textEdit->toPlainText();
-          stream.flush();
-          file.close();
+
+          cir.salvar(fileName.toStdString());
+
         }
       }
-      */
+
 }
+
 
 void Circuitos::on_actionSair_triggered()
 {
      QCoreApplication::quit();
 }
 
+
 void Circuitos::on_actionGerar_tabela_triggered()
 {
-    //cir.gerarTabela();
-    //cir.imprimirEntradas();
-    //cir.imprimirSaidas();
+    cir.gerarTabela();
+
+}
+
+void Circuitos::on_Table_circuit_cellDoubleClicked(int row, int column)
+{
+    door.show();
+}
+void Circuitos::on_Table_exit_cellDoubleClicked(int row, int column)
+{
+    exit.show();
+
 }
