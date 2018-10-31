@@ -16,21 +16,18 @@ Circuitos::Circuitos(QWidget *parent) :
     new_cir(), door(), exit()
 
 {
-
-    QLabel *circuit;
-    QLabel *truth;
-    QLabel *exit;
     ui->setupUi(this);
 
     ui->Table_circuit->setRowCount(0);
-    ui->Table_circuit->setColumnCount(0);
+    ui->Table_circuit->setColumnCount(6);
+
+
     ui->Table_circuit->QTableWidget::setEnabled(false);
     ui->Table_circuit->setSelectionMode(QAbstractItemView::NoSelection);
     ui->Table_circuit->setTabKeyNavigation(false);
     ui->Table_circuit->setEnabled(true);
     ui->Table_circuit->setHorizontalHeaderLabels(QStringList() <<"TIPO" << "Nº \n ENTR" << "ENTR \n 1" << "ENTR \n 2" << "ENTR \n 3" << "ENTR \n 4");
 
-  /*
     ui->Table_truth->setRowCount(5);
     ui->Table_truth->setColumnCount(5);
     ui->Table_truth->QTableWidget::setEnabled(false);
@@ -40,7 +37,7 @@ Circuitos::Circuitos(QWidget *parent) :
     ui->Table_truth->setSpan(0,3,1,3);
     ui->Table_truth->setEnabled(false);
 
-    */
+
 
     ui->Table_exit->setRowCount(0);
     ui->Table_exit->setColumnCount(0);
@@ -52,7 +49,51 @@ Circuitos::Circuitos(QWidget *parent) :
 
 
 
+}
+
+Circuitos::~Circuitos()
+{
+    delete ui;
+}
+
+
 /*
+    QLabel *circuit;
+    QLabel *truth;
+    QLabel *exit;
+
+
+    ui->Table_circuit->setRowCount(0);
+    ui->Table_circuit->setColumnCount(0);
+    ui->Table_circuit->QTableWidget::setEnabled(false);
+    ui->Table_circuit->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->Table_circuit->setTabKeyNavigation(false);
+    ui->Table_circuit->setEnabled(true);
+    ui->Table_circuit->setHorizontalHeaderLabels(QStringList() <<"TIPO" << "Nº \n ENTR" << "ENTR \n 1" << "ENTR \n 2" << "ENTR \n 3" << "ENTR \n 4");
+
+
+    ui->Table_truth->setRowCount(5);
+    ui->Table_truth->setColumnCount(5);
+    ui->Table_truth->QTableWidget::setEnabled(false);
+    ui->Table_truth->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->Table_truth->setTabKeyNavigation(false);
+    ui->Table_truth->setSpan(0,0,1,3);
+    ui->Table_truth->setSpan(0,3,1,3);
+    ui->Table_truth->setEnabled(false);
+
+
+
+    ui->Table_exit->setRowCount(0);
+    ui->Table_exit->setColumnCount(0);
+    ui->Table_exit->QTableWidget::setEnabled(false);
+    ui->Table_exit->setSelectionMode(QAbstractItemView::NoSelection);
+    ui->Table_exit->setTabKeyNavigation(false);
+    ui->Table_exit->setEnabled(true);
+    ui->Table_exit->setHorizontalHeaderLabels(QStringList() <<"ORG \n SAÍDA");
+
+
+
+
 
     for(unsigned j=0; j<7; j++)
     {
@@ -92,8 +133,8 @@ Circuitos::Circuitos(QWidget *parent) :
         ui->Table_circuit->setCellWidget(0,j,circuit);
 
     }
-*/
-    /*for(unsigned j=0; j<4; j++)
+
+    for(unsigned j=0; j<4; j++)
     {
         truth = new QLabel;
         truth->setAlignment(Qt::AlignCenter);
@@ -113,7 +154,7 @@ Circuitos::Circuitos(QWidget *parent) :
 
     }
 
-    */
+
 
 
         exit = new QLabel;
@@ -127,16 +168,13 @@ Circuitos::Circuitos(QWidget *parent) :
 }
 
 
-Circuitos::~Circuitos()
-{
-    delete ui;
-}
+
 
 void Circuitos::on_actionNovo_triggered()
 {
     new_cir.show();
 }
-/*
+
 
 void Circuitos::imprimirEntrada(int i,int j, int valor)
 {
@@ -159,7 +197,7 @@ void Circuitos::imprimirSaidas()
     }
 
 }
-*/
+
 
 void Circuitos::on_actionLer_triggered()
 {
@@ -210,4 +248,4 @@ void Circuitos::on_Table_exit_cellDoubleClicked(int row, int column)
 {
     exit.show();
 
-}
+}*/

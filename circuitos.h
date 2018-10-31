@@ -21,19 +21,19 @@ public:
     ~Circuitos();
 
 private slots:
-    void on_actionNovo_triggered();
+    void on_actionNovo_triggered(){}
 
-    void on_actionLer_triggered();
+    void on_actionLer_triggered(){}
 
-    void on_actionSalvar_triggered();
+    void on_actionSalvar_triggered(){}
 
-    void on_actionSair_triggered();
+    void on_actionSair_triggered(){}
 
-    void on_actionGerar_tabela_triggered();
+    void on_actionGerar_tabela_triggered(){}
 
-    void on_Table_circuit_cellDoubleClicked(int row, int column);
+    void on_Table_circuit_cellDoubleClicked(int row, int column){}
 
-    void on_Table_exit_cellDoubleClicked(int row, int column);
+    void on_Table_exit_cellDoubleClicked(int row, int column){}
 
 private:
     Ui::Circuitos *ui;
